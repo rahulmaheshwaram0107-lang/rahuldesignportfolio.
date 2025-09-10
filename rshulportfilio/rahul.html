@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>What Graphic Design Can Do – Portfolio</title>
+  <meta name="description" content="A clean one-page portfolio showcasing the impact of graphic design, ready to share with clients." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b0b0c;
+      --bg-soft: #121215;
+      --text: #f5f7fa;
+      --muted: #b7bec8;
+      --accent: #ff5a3c; /* change to #e3a008 (gold) or #2563eb (blue) if preferred */
+      --card: #15161a;
+      --ring: rgba(255,90,60,.25);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 20px;
+      --maxw: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+    .nav{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(11,11,12,.85),rgba(11,11,12,.6));backdrop-filter: blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:36px;height:36px;border-radius:50%;background:conic-gradient(from 210deg,var(--accent),#ff8a64 40%,#ffd6cc 70%,var(--accent));box-shadow:0 0 0 4px rgba(255,255,255,.04)}
+    .brand h1{font-size:18px;margin:0;font-weight:800;letter-spacing:.3px}
+    .nav a.btn{padding:10px 14px;border:1px solid rgba(255,255,255,.12);border-radius:12px}
+
+    header.hero{position:relative;overflow:hidden}
+    .hero-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:64px 0}
+    @media (max-width: 900px){.hero-wrap{grid-template-columns:1fr;padding:42px 0}}
+    .headline{font-family:"Playfair Display",serif;font-size:clamp(32px, 4.8vw, 64px);line-height:1.05;margin:0 0 14px}
+    .subhead{color:var(--muted);font-size:clamp(15px,2vw,18px);line-height:1.6;margin:0 0 26px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-primary{background:var(--accent);color:#0b0b0c;padding:13px 18px;border-radius:14px;font-weight:700;border:none;box-shadow:var(--shadow);cursor:pointer}
+    .btn-ghost{background:transparent;color:var(--text);padding:12px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.12);cursor:pointer}
+
+    .glass{position:absolute;inset:-30% -10% auto -10%;height:60vh;min-height:420px;background:radial-gradient(1200px 400px at 20% 30%,rgba(255,90,60,.15),transparent 60%),
+            radial-gradient(800px 400px at 90% 60%,rgba(255,255,255,.06),transparent 60%);
+           filter: blur(30px);pointer-events:none}
+
+    section{padding:56px 0}
+    .kicker{color:var(--accent);font-weight:800;letter-spacing:.22em;text-transform:uppercase;font-size:12px;margin-bottom:8px}
+
+    .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    @media (max-width: 900px){.cards{grid-template-columns:1fr}}
+
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+    .card h3{display:flex;align-items:center;gap:10px;margin:0 0 6px;font-size:20px}
+    .card p{margin:8px 0 0;color:var(--muted);line-height:1.65}
+    .badge{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:12px;background:rgba(255,90,60,.12);border:1px solid var(--ring);font-size:20px}
+
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    @media (max-width: 900px){.grid-2{grid-template-columns:1fr}}
+
+    .panel{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:24px}
+    .panel h4{margin:0 0 8px}
+    .muted{color:var(--muted)}
+
+    .feature{display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:flex-start}
+    .feature .emoji{display:grid;place-items:center;width:56px;height:56px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);font-size:26px}
+    .feature h3{margin:4px 0 6px}
+
+    .cta-section{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.02));border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+    .cta-box{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+    @media (max-width:900px){.cta-box{grid-template-columns:1fr}}
+
+    footer{padding:22px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,.06)}
+    .footer-grid{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+
+    .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.12);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:12px}
+
+    /* Print as PDF */
+    @media print{
+      .nav,.cta,.chip, .btn-primary, .btn-ghost{display:none !important}
+      body{background:#fff;color:#111}
+      .card,.panel{box-shadow:none}
+      a:after{content:" (" attr(href) ")";font-size:12px;color:#555}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Rahul Design — Portfolio</h1>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="btn-primary" href="https://forms.gle/TkTghnAY47X13pJk9">Start a Project</a>
+        <a class="btn-ghost" href="pg2.html">View Work Samples</a>
+        <a class="btn" href="#sections">Sections</a>
+        <a class="btn" href="https://forms.gle/TkTghnAY47X13pJk9">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="glass" aria-hidden="true"></div>
+    <div class="container hero-wrap">
+      <div>
+        <p class="kicker">Portfolio Preview</p>
+        <h2 class="headline">What Graphic Design <span style="color:var(--accent)">Can Do</span> for You</h2>
+        <p class="subhead">From identity systems and intuitive UX to sales-driving campaigns — this one-page portfolio shows how design connects brands with people and moves business forward.</p>
+        <div class="cta">
+          <button class="btn-primary" onclick="document.getElementById('sections').scrollIntoView({behavior:'smooth'});">Explore Sections</button>
+          <button class="btn-ghost" onclick="window.print()">Download as PDF</button>
+        </div>
+      </div>
+      <div>
+        <div class="panel">
+          <h4>At a glance</h4>
+          <p class="muted">8 focus areas, clean layout, client-ready content. Swap colors, logo, and contact to make it yours.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+            <span class="chip">Minimal UI</span>
+            <span class="chip">Responsive</span>
+            <span class="chip">Printable</span>
+            <span class="chip">No libraries</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="sections" class="container">
+    <section>
+      <div class="grid-2">
+        <div class="card">
+          <h3><span class="badge">🎨</span> 1. Build Strong Visual Identity</h3>
+          <p>Create logos, color palettes, and typography systems. Define the look and feel of a brand so it’s instantly recognizable.</p>
+        </div>
+        <div class="card">
+          <h3><span class="badge">📢</span> 2. Communicate Messages Clearly</h3>
+          <p>Turn complex ideas into simple, easy-to-understand visuals. Use posters, infographics, and social media graphics to spread messages effectively.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="grid-2">
+        <div class="card">
+          <h3><span class="badge">🛍️</span> 3. Boost Marketing & Sales</h3>
+          <p>Design packaging that attracts attention on shelves. Make ads, banners, and promotional materials that convert customers.</p>
+        </div>
+        <div class="card">
+          <h3><span class="badge">🌍</span> 4. Shape Perception & Emotion</h3>
+          <p>Influence how people feel about a brand, product, or cause. Create emotional connections through colors, imagery, and typography.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="grid-2">
+        <div class="card">
+          <h3><span class="badge">📱</span> 5. Enhance User Experience (UX)</h3>
+          <p>Improve website and app interfaces with intuitive layouts. Guide users smoothly with visual hierarchy and design systems.</p>
+        </div>
+        <div class="card">
+          <h3><span class="badge">📚</span> 6. Educate & Inform</h3>
+          <p>Make data and research accessible through infographics. Design reports, manuals, and e-learning visuals that engage.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="grid-2">
+        <div class="card">
+          <h3><span class="badge">🎭</span> 7. Support Culture & Creativity</h3>
+          <p>Bring life to events, campaigns, and movements with powerful visuals. Reflect cultural stories, traditions, or modern innovation through design.</p>
+        </div>
+        <div class="card">
+          <h3><span class="badge">🏆</span> 8. Give Competitive Advantage</h3>
+          <p>Differentiate a business from competitors. Make a lasting impression that increases trust and credibility.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-box">
+        <div>
+          <p class="kicker">Let’s Collaborate</p>
+          <h3 style="margin:0 0 12px">Design that influences decisions and sparks emotion.</h3>
+          <p class="muted" style="margin:0 0 18px">In short: Graphic design can influence decisions, spark emotions, and connect people with ideas or brands.</p>
+          <div class="cta">
+            <a class="btn-primary" href="#contact">Start a Project</a>
+            <a class="btn-ghost" href="pg2.html">View Work Samples</a>
+          </div>
+        </div>
+        <div class="panel">
+          <h4>Services</h4>
+          <ul class="muted" style="margin:10px 0 0; padding-left:18px; line-height:1.8">
+            <li>Brand Identity (logo, color, type)</li>
+            <li>Marketing & Social Creatives</li>
+            <li>Web/UI Design & Prototypes</li>
+            <li>Packaging & Print Collateral</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+  <h2>Tools I Use</h2>
+  <div class="gallery">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Photoshop" title="Adobe Photoshop">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="Illustrator" title="Adobe Illustrator">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma" title="Figma">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Adobe_After_Effects_CC_icon.svg/1024px-Adobe_After_Effects_CC_icon.svg.png?20210519030120" alt="AfterEffect" title="AfterEffect">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="Premiere Pro" title="Premiere Pro">
+  </div>
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  
+  <style>
+    .tools {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .tools h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .gallery img {
+      width: 80px;   /* medium size */
+      height: 80px;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Your content + tools section goes here -->
+</body>
+</html>
+
+</section>
+
+
+  </main>
+
+  <footer id="contact">
+    <div class="container footer-grid">
+      <div>
+        <strong>Contact</strong>
+        <p class="muted" style="margin:6px 0 0">Email: rahulmaheshwaram0107@email.com </p>
+        <p class="muted" style="margin:6px 0 0">Instagram:Rahul.designx</p>
+         <p class="muted" style="margin:6px 0 0">Phone: +91-99891 56362</p>
+         <p class="muted" style="margin:6px 0 0">Website/Portfolio: yourdomain.com</p>
+      </div>
+      <div>
+       
+    </div>
+  </footer>
+</body>
+</html>
